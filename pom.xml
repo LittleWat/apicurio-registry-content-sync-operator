@@ -27,10 +27,10 @@
 
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
         <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
-        <quarkus.platform.version>2.6.3.Final</quarkus.platform.version>
+        <quarkus.platform.version>2.7.5.Final</quarkus.platform.version>
         <quarkus-plugin.version>${quarkus.platform.version}</quarkus-plugin.version>
 
-        <quarkus.operator.extension>3.0.2</quarkus.operator.extension>
+        <quarkus.operator.extension>6.0.1</quarkus.operator.extension>
 
         <log4j2.version>2.13.3</log4j2.version>
         <lombok.version>1.18.22</lombok.version>
@@ -72,8 +72,11 @@
 
             <dependency>
                 <groupId>io.quarkiverse.operatorsdk</groupId>
-                <artifactId>quarkus-operator-sdk</artifactId>
                 <version>${quarkus.operator.extension}</version>
+                <artifactId>quarkus-operator-sdk</artifactId>
+<!--                <artifactId>quarkus-operator-sdk-bom</artifactId>-->
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <dependency>

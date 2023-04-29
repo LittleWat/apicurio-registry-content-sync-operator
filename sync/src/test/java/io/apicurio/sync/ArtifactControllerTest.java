@@ -37,14 +37,14 @@ import io.quarkus.test.junit.TestProfile;
 @QuarkusTest
 @TestProfile(ApicurioKubeSyncTestProfile.class)
 public class ArtifactControllerTest {
-
-    Logger logger = LoggerFactory.getLogger(getClass());
-
-    @Inject
-    RegistryClient registryClient;
-
-    @Inject
-    ArtifactController controller;
+//
+//    Logger logger = LoggerFactory.getLogger(getClass());
+//
+//    @Inject
+//    RegistryClient registryClient;
+//
+//    @Inject
+//    ArtifactController controller;
 
     @Test
     public void testArtifactCRUD() {

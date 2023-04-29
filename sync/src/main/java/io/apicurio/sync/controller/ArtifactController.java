@@ -6,6 +6,8 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
+import io.fabric8.kubernetes.client.dsl.Deletable;
+import io.javaoperatorsdk.operator.api.reconciler.Cleaner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +37,7 @@ import io.javaoperatorsdk.operator.api.reconciler.UpdateControl;
 import io.vertx.mutiny.ext.web.client.WebClient;
 
 @ControllerConfiguration
-public class ArtifactController implements Reconciler<Artifact> {
+public class ArtifactController implements Reconciler<Artifact>, Cleaner<Artifact> {
 
     private static final String STATUS_READY = "ready";
 
@@ -90,7 +92,7 @@ public class ArtifactController implements Reconciler<Artifact> {
 
                     VersionSearchResults versions = registryClient.listArtifactVersions(spec.getGroupId(), spec.getArtifactId(), 0, 100);
                     boolean notAllDisabled = versions.getVersions().stream()
-                        .anyMatch(ver -> ver.getState() != ArtifactState.DISABLED);
+                            .anyMatch(ver -> ver.getState() != ArtifactState.DISABLED);
                     if (!notAllDisabled) {
                         debugLog(spec, "Going to delete artifact, all versions disabled");
                         registryClient.deleteArtifact(spec.getGroupId(), spec.getArtifactId());
