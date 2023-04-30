@@ -72,9 +72,8 @@
 
             <dependency>
                 <groupId>io.quarkiverse.operatorsdk</groupId>
-                <version>${quarkus.operator.extension}</version>
                 <artifactId>quarkus-operator-sdk</artifactId>
-<!--                <artifactId>quarkus-operator-sdk-bom</artifactId>-->
+                <version>${quarkus.operator.extension}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
